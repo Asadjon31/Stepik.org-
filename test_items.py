@@ -1,10 +1,11 @@
+import time
+
 from selenium.webdriver.common.by import By
 
-link = 'http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/'
+link = "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/"
 
 
-def test_guest_should_see_button(browser):
+def test_add_to_cart_button_is_displayed(browser):
     browser.get(link)
-    browser.implicitly_wait(10)
-    button = len(browser.find_elements(By.CSS_SELECTOR, '.btn-add-to-basket'))
-    assert button > 0, 'Basket not found'
+    button_is_visible = browser.find_element(By.CSS_SELECTOR, ".btn-add-to-basket").is_displayed()
+    assert button_is_visible is True
